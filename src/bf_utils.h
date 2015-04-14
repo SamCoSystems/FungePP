@@ -73,7 +73,7 @@ void init_grid(char* filename)
     char* line;
     while(!infile.eof())
     {
-			infile.getline(line, _MAX_C);
+      infile.getline(line, _MAX_C);
       for(int c=0;line[c];c++) _GRID[r][c]=line[c];
       r++;
     }
