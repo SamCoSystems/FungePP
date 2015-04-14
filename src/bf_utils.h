@@ -32,8 +32,8 @@ const int _STRING = 1;
 
 //program variables
 int _DIRECTION = _EAST;
-int _X = 0;
-int _Y = 0;
+unsigned int _X = 0;
+unsigned int _Y = 0;
 int _MODE = _NORMAL;
 int _RUN = true;
 
@@ -57,6 +57,8 @@ void move()
 {
   _X += _DC[_DIRECTION];
   _Y += _DR[_DIRECTION];
+  _X %= _MAX_C;
+  _Y %= _MAX_R;
 }
 
 void init_rand()
@@ -64,13 +66,23 @@ void init_rand()
   srand(time(NULL));
 }
 
+void print_sample()
+{
+  for(int r=0;r<20;r++) {
+    for(int c=0;c<20;c++)
+      cout << (_GRID[r][c] ? (char)_GRID[r][c] : ' ');
+    cout << endl;
+  }
+}
+
+
 void init_grid(char* filename)
 {
   ifstream infile(filename);
   if(infile.is_open())
   {
     int r = 0;
-    char* line;
+    char* line = (char*)malloc(4*4096);
     while(!infile.eof())
     {
       infile.getline(line, _MAX_C);
@@ -78,7 +90,9 @@ void init_grid(char* filename)
       r++;
     }
   }
+  //print_sample();
   infile.close();
 }
+
 
 #endif //BF_UTIL_H

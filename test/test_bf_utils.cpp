@@ -12,5 +12,21 @@ int main()
     }
     cout << endl;
   }
+
+  cout << endl << endl;
+
+  push(5);
+  cout << "pushed 5, popping " << pop() << endl;
+
+  push(6);
+  cout << "pushed 6, peeking " << peek() << endl;
+
+  cout << "popping " << pop() << endl;
+
+  cout << "PC " << _X << "," << _Y << endl;
+  move();
+  cout << "PC moved, now at " << _X << "," << _Y << endl;
+
+
   return 0;
 }

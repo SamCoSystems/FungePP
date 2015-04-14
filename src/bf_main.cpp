@@ -1,6 +1,8 @@
 #include "bf_utils.h"
 #include "bf_ops.h"
 
+#include <unistd.h>
+
 void do_op(char C)
 {
   switch(C)
@@ -15,10 +17,10 @@ void do_op(char C)
     case '7':
     case '8':
     case '9': push(C-'0'); break;
-    case '+': plus(); break;
-    case '-': subtract(); break;
-    case '*': multiply(); break;
-    case '/': divide(); break;
+    case '+': addition(); break;
+    case '-': subtraction(); break;
+    case '*': multiplication(); break;
+    case '/': division(); break;
     case '%': modulo(); break;
     case '^': north(); break;
     case '>': east(); break;
@@ -47,19 +49,35 @@ void do_op(char C)
   }
 }
 
-int main()
+int main(int argc, char **argv)
 {
-  init_rand();
-  init_ops();
+  if(argc <= 1)
+  {
+    cout << "Usage: F++ <file>" << endl;
+    cout << "  Loads and runs the befunge program <file>" << endl;
+    return 0;
+  }
   
+  init_rand();
+  init_grid(argv[1]);
+
   while(_RUN)
   {
     char C = _GRID[_Y][_X];
-    if(_MODE == _NORMAL)
+
+    if(C != 0 && (_MODE == _NORMAL || C == '"'))
+    {
+      //cout << "in normal mode, doing op " << C << endl;
       do_op(C);
-    else
+    }
+    else if(C != 0)
+    {
+      //cout << "in string mode, pushing " << C << endl;
       push(C);
+    }
     
     move();
   }
+  cout << endl;
+  return 0;
 }

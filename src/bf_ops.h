@@ -18,11 +18,11 @@ unsigned int copout()
 }
 
 //Arithmetic
-void plus() { push(pop()+pop()); }
-void subtract() { unsigned int a=pop(), b=pop(); push(b-a); }
-void multiply() { push(pop()*pop()); }
-void division() { unsigned int a=pop(), b=pop(); push(a==0?copout():b/a); }
-void modulo() { unsigned int a=pop(), b=pop(); push(a==0?copout():b%a; }
+void addition() { push(pop()+pop()); }
+void subtraction() { unsigned int a, b; a=pop(); b=pop(); push(b-a); }
+void multiplication() { push(pop()*pop()); }
+void division() { unsigned int a, b; a=pop(); b=pop(); push(a==0?copout():b/a); }
+void modulo() { unsigned int a, b; a=pop(); b=pop(); push(a==0?copout():b%a); }
 
 //Directional
 void north() { _DIRECTION = _NORTH; }
@@ -33,19 +33,19 @@ void spin() { _DIRECTION = rand() % 4; }
 
 //Conditional
 void lnot() { push(!pop()); }
-void gt() { unsigned int a=pop(), b=pop(); push(b>a); }
+void gt() { unsigned int a, b; a=pop(); b=pop(); push(b>a); }
 void hif() { if(pop()) west(); else east(); }
 void vif() { if(pop()) north(); else south(); }
 
 //Control
 void tsm() { _MODE = !_MODE; }
 void dup() { push(peek()); }
-void swap() { unsigned int a=pop(), b=pop(); push(a); push(b); }
+void swap() { unsigned int a, b; a=pop(); b=pop(); push(a); push(b); }
 void chomp() { pop(); }
 void jump() { move(); }
-void put() { unsigned int y=pop(), x=pop(), v=pop(); _GRID[y][x]=v; }
-void get() { unsigned int y=pop(), x=pop(), push((int)_GRID[y][x]); }
-void gate() { unsigned int y=pop(), x=pop(), d=pop(); _X = x; _Y = y; _DIRECTION = d % 4; }
+void put() { unsigned int y,x,v; x=pop(); x=pop(); v=pop(); _GRID[y][x]=v; }
+void get() { unsigned int y,x; x=pop(); x=pop(); push((int)_GRID[y][x]); }
+void gate() { unsigned int y,x,d; x=pop(); x=pop(); d=pop(); _X = x; _Y = y; _DIRECTION = d % 4; }
 
 //I/O
 void print_i() { cout << pop(); }

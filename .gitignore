@@ -3,3 +3,5 @@
 
 #ignore executables
 test_bf_utils
+test_bf_ops
+F++
