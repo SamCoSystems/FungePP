@@ -1,0 +1,12 @@
+FungePP is a C++ interpreter for the Funge++ language (a procedural extenstion of Befunge-93)
+
+===
+
+Changes from the Befunge-93 spec:
+
+a 4096x4096 grid is used instead of 25x80
+a max stack size of 1024 is used
+
+The 'H' (or gate) instruction is added. Execution is as follows
+  -pop y, x, and d. move the PC to x,y with direction d%4 where 0=N,1=E,2=S,3=W
+	-essentially, a goto
