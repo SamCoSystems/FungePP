@@ -4,6 +4,10 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
+#include <iostream>
+#include <fstream>
+
+using namespace std;
 
 const int _MAX_R = 4096;
 const int _MAX_C = 4096; //per Funge++ spec
@@ -15,8 +19,8 @@ const int _MAX_S = 1024; //per Funge++ spec
 int _STACK[_MAX_S];
 int _STACK_T = 0;
 
-const int _DR =  { -1, 0, 1, 0 };
-const int _DC = { 0, 1, 0, -1 };
+const int _DR[] =  { -1, 0, 1, 0 };
+const int _DC[] = { 0, 1, 0, -1 };
 
 const int _NORTH = 0;
 const int _EAST = 1;
@@ -58,6 +62,23 @@ void move()
 void init_rand()
 {
   srand(time(NULL));
+}
+
+void init_grid(char* filename)
+{
+  ifstream infile(filename);
+  if(infile.is_open())
+  {
+    int r = 0;
+    char* line;
+    while(!infile.eof())
+    {
+			infile.getline(line, _MAX_C);
+      for(int c=0;line[c];c++) _GRID[r][c]=line[c];
+      r++;
+    }
+  }
+  infile.close();
 }
 
 #endif //BF_UTIL_H
