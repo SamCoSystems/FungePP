@@ -1,0 +1,5 @@
+}0123453848933938v push some as parameters
+v{               <
+>182}103H}.@       call the recursive add, print the result, then end the program
+ \:#v_\{H          if the 2nd item on the stack is 0, return the top item on the stack
+    >+103H         ad the top to items on the stack, call the recursive add
