@@ -43,9 +43,9 @@ void dup() { push(peek()); }
 void swap() { unsigned int a, b; a=pop(); b=pop(); push(a); push(b); }
 void chomp() { pop(); }
 void jump() { move(); }
-void put() { unsigned int y,x,v; x=pop(); x=pop(); v=pop(); _GRID[y][x]=v; }
-void get() { unsigned int y,x; x=pop(); x=pop(); push((int)_GRID[y][x]); }
-void gate() { unsigned int y,x,d; x=pop(); x=pop(); d=pop(); _X = x; _Y = y; _DIRECTION = d % 4; }
+void put() { unsigned int y,x,v; y=pop(); x=pop(); v=pop(); _GRID[y][x]=v; }
+void get() { unsigned int y,x; y=pop(); x=pop(); push((int)_GRID[y][x]); }
+void gate() { unsigned int y,x,d; y=pop(); x=pop(); d=pop(); _X = x; _Y = y; _DIRECTION = d % 4; }
 
 //I/O
 void print_i() { cout << pop(); }
