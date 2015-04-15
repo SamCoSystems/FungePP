@@ -3,7 +3,7 @@
 
 int main()
 {
-  init_grid((char*)"test_utils.bef");
+  init_grid((char*)"samples/test_utils.bef");
   for(int r=0;r<20;r++)
   {
     for(int c=0;c<20;c++)
