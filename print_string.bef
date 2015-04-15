@@ -1,7 +1,7 @@
-180"gnirts a si siht"150H //Gate to the string printing function at 
+1060"gnirts a si siht"104H //Gate to the string printing function at 
 //^ push the return value
 
 
- >:#,_H //gate to the return value, in this case, the program end at 08
+ >:#,_$H //gate to the return value, in this case, the program end at 08
 
  @

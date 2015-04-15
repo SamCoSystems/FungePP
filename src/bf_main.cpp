@@ -77,6 +77,7 @@ int main(int argc, char **argv)
     }
     
     move();
+    //sleep(1);
   }
   cout << endl;
   return 0;
