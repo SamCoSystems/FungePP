@@ -1,0 +1,5 @@
+156+0}76104H}.@ push the return address, switch to next bank, push the params and the function address, gate to it
+                upon return, switch to the next bank and print the return value
+
+ add the 2 params sent to us, switch to previous bank, which has the return address
+ +{H

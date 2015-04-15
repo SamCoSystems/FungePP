@@ -45,6 +45,8 @@ void do_op(char C)
     case '&': input_i(); break;
     case '~': input_c(); break;
     case '@': hacf(); break;
+    case '{': left_b(); break;
+    case '}': right_b(); break;
     default: /* DO NOTHING! */ break;
   }
 }

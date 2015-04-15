@@ -16,8 +16,9 @@ unsigned int _GRID[_MAX_R][_MAX_C];
 
 const int _MAX_S = 1024; //per Funge++ spec
 
-int _STACK[_MAX_S];
-int _STACK_T = 0;
+int _STACK[_MAX_S][_MAX_S];
+int _STACK_T[_MAX_S];
+int _STACK_B = 0;
 
 const int _DR[] =  { -1, 0, 1, 0 };
 const int _DC[] = { 0, 1, 0, -1 };
@@ -40,18 +41,30 @@ int _RUN = true;
 
 void push(int i)
 {
-  _STACK[_STACK_T++] = i;
+  _STACK[_STACK_B][_STACK_T[_STACK_B]++] = i;
 }
 
 int pop()
 {
-  return _STACK[--_STACK_T];
+  return _STACK[_STACK_B][--_STACK_T[_STACK_B]];
 }
 
 int peek()
 {
-  return _STACK[_STACK_T-1];
+  return _STACK[_STACK_B][_STACK_T[_STACK_B]-1];
 }
+
+int left_b()
+{
+  _STACK_B--;
+}
+
+int right_b()
+{
+  _STACK_B++;
+}
+
+
 
 void move()
 {
@@ -90,6 +103,7 @@ void init_grid(char* filename)
       r++;
     }
   }
+  for(int i=0;i<_MAX_S;i++) _STACK_T[i]=0;
   //print_sample();
   infile.close();
 }

@@ -11,6 +11,10 @@ The 'H' (or gate) instruction is added. Execution is as follows
   -pop y, x, and d. move the PC to x,y with direction d%4 where 0=N,1=E,2=S,3=W
 	-essentially, a goto
 
+The '{' and '}' stack bank switches, moves to the previous and next bank respectively,
+  -per the Funge++ spec, 1024 banks are available to you, each with it's own stack
+  
+
 ===
 
 Tabs vs Spaces
