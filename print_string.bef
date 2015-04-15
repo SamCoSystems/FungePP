@@ -1,7 +1,7 @@
-1060"gnirts a si siht"104H //Gate to the string printing function at 
+1060"gnirts a si siht"104H //Gate to the string printing function at 04
 //^ push the return value
-
-
- >:#,_$H //gate to the return value, in this case, the program end at 08
+//this program demonstrates the capability of procedure calls in Funge++
+//By pushing the return information, and gating to a procedure, the program can resume anywhere the coder likes
+ >:#,_$H //gate to the return value, in this case, the program end at 06
 
  @
