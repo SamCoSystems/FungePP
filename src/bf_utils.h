@@ -64,8 +64,6 @@ int right_b()
   _STACK_B++;
 }
 
-
-
 void move()
 {
   _X += _DC[_DIRECTION];

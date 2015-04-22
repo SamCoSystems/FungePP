@@ -47,6 +47,9 @@ void do_op(char C)
     case '@': hacf(); break;
     case '{': left_b(); break;
     case '}': right_b(); break;
+    case '[': carry_l(); break;
+    case ']': carry_r(); break;
+    case ';': empty(); break;
     default: /* DO NOTHING! */ break;
   }
 }

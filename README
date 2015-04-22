@@ -13,6 +13,10 @@ The 'H' (or gate) instruction is added. Execution is as follows
 
 The '{' and '}' stack bank switches, moves to the previous and next bank respectively,
   -per the Funge++ spec, 1024 banks are available to you, each with it's own stack
+
+The '[' and ']' stack carry switches, pops the top of the stack, moves to the previous and next bank respectively, and pushes the value onto that stack
+
+The ';' (or empty) instruction is added. If the current stack bank is empty, push 0, otherwise push 1
   
 
 ===

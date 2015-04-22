@@ -6,8 +6,6 @@
 
 using namespace std;
 
-typedef void (*bf_op)();
-
 //for divide and modulo by 0
 unsigned int copout()
 {
@@ -36,6 +34,7 @@ void lnot() { push(!pop()); }
 void gt() { unsigned int a, b; a=pop(); b=pop(); push(b>a); }
 void hif() { if(pop()) west(); else east(); }
 void vif() { if(pop()) north(); else south(); }
+void empty() { push(!(_STACK_T[_STACK_B]));  }
 
 //Control
 void tsm() { _MODE = !_MODE; }
@@ -46,6 +45,9 @@ void jump() { move(); }
 void put() { unsigned int y,x,v; y=pop(); x=pop(); v=pop(); _GRID[y][x]=v; }
 void get() { unsigned int y,x; y=pop(); x=pop(); push((int)_GRID[y][x]); }
 void gate() { unsigned int y,x,d; y=pop(); x=pop(); d=pop(); _X = x; _Y = y; _DIRECTION = d % 4; }
+void carry_r() { int v = pop(); right_b(); push(v); }
+void carry_l() { int v = pop(); left_b(); push(v); }
+
 
 //I/O
 void print_i() { cout << pop(); }
