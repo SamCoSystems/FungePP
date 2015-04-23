@@ -57,11 +57,13 @@ int peek()
 int left_b()
 {
   _STACK_B--;
+  _STACK_B %= _MAX_S;
 }
 
 int right_b()
 {
   _STACK_B++;
+  _STACK_B %= _MAX_S;
 }
 
 void move()

@@ -50,6 +50,8 @@ void do_op(char C)
     case '[': carry_l(); break;
     case ']': carry_r(); break;
     case ';': empty(); break;
+    case 'O': portal_o(); break;
+    case 'B': portal_b(); break;
     default: /* DO NOTHING! */ break;
   }
 }

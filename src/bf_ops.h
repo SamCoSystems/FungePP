@@ -47,6 +47,8 @@ void get() { unsigned int y,x; y=pop(); x=pop(); push((int)_GRID[y][x]); }
 void gate() { unsigned int y,x,d; y=pop(); x=pop(); d=pop(); _X = x; _Y = y; _DIRECTION = d % 4; }
 void carry_r() { int v = pop(); right_b(); push(v); }
 void carry_l() { int v = pop(); left_b(); push(v); }
+void portal_o() { left_b(); push(_DIRECTION); push(_X); push(_Y); right_b(); gate(); }
+void portal_b() { left_b(); gate(); right_b(); }
 
 
 //I/O
