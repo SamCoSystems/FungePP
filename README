@@ -1,4 +1,6 @@
-FungePP is a C++ interpreter for the Funge++ language (a procedural extenstion of Befunge-93)
+FungePP is a C++ interpreter for the Funge++ language (a functional extenstion of Befunge-93)
+
+Version: v0.1
 
 ===
 
@@ -11,10 +13,12 @@ The 'H' (or gate) instruction is added. Execution is as follows
   -pop y, x, and d. move the PC to x,y with direction d%4 where 0=N,1=E,2=S,3=W
 	-essentially, a goto
 
-The '{' and '}' stack bank switches, moves to the previous and next bank respectively,
+The '{' and '}' stack bank switches, moves to the previous and next bank respectively, the banks wrap
   -per the Funge++ spec, 1024 banks are available to you, each with it's own stack
 
 The '[' and ']' stack carry switches, pops the top of the stack, moves to the previous and next bank respectively, and pushes the value onto that stack
+
+The Portal commands, orange 'O' and blue 'B' O moves to previous bank, pushes direction, x and y, moves to the next bank, and gates. B moves to the previous bank, gates, moves to the next bank
 
 The ';' (or empty) instruction is added. If the current stack bank is empty, push 0, otherwise push 1
   
